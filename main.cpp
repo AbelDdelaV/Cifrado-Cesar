@@ -22,8 +22,9 @@ int main()
     cout << "Ingrese la clave: ";
     cin >> b;
         
-    cifradoJC p (a, b);
-    p.elegir();
+    cifradoJC p (a,b);
+    cout << "Cifrado: " << p.cifrar() << endl;
+    cout << "Palabra original: " << p.descifrar() << endl;
 }
 
 

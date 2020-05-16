@@ -11,41 +11,34 @@
 
 using namespace std;
 
-void cifradoJC::cifrar()
+string cifradoJC::cifrar()
 {
+    double pos;
     for ( int i = 0; i < word.length(); i++)
     {
         if ( isalpha(word[i]))
         {
-            for (int j = 0; j < clave; j++)
-            {
-                if (word[i] != alfabeto.length())
-                    word[i] ++;
-                else
-                    word[i] = alfabeto[0];
-            }
+            pos = alfabeto.find(word[i]);
+            resultado += alfabeto[pos + clave];
         }
     }
-    cout << "\n" << word << endl << endl;
+    return resultado;
 }
-void cifradoJC::descifrar()
+string cifradoJC::descifrar()
 {
-    for ( int i = 0; i < word.length(); i++)
+    string resultado2;
+    double pos;
+    for ( int i = 0; i < resultado.length(); i++)
     {
-        if ( isalpha(word[i]))
+        if ( isalpha(resultado[i]))
         {
-            for (int j = 0; j < clave; j++)
-            {
-                if (word[i] != alfabeto.length())
-                    word[i] --;
-                else
-                    word[i] = alfabeto[0];
-            }
+            pos = alfabeto.find(resultado[i]);
+            resultado2 += alfabeto[pos - clave];
         }
     }
-    cout << "\n" << word << endl << endl;
+    return resultado2;
 }
-void cifradoJC::elegir()
+/*void cifradoJC::elegir()
 {
     int elegir;
     cout << "\nCifrar => 1\nDescifrar => 2\n" << endl;
@@ -61,5 +54,5 @@ void cifradoJC::elegir()
     }
     
 }
-
+*/
 #endif /* JCfunction_h */
